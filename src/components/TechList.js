@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import TechItem from './TechItem';
+
 class TechList extends Component {
 
 	state = {
 		techs: [
 			'Node.JS', 'PHP', 'ReactJS', 'React Native',
 		],
-		newTech: ''
+		newTech: '',
 	};
 
 	handleInputChange = e => {
@@ -20,7 +22,7 @@ class TechList extends Component {
 				...this.state.techs,
 				this.state.newTech,
 			],
-			newTech: '',
+			newTech: ''
 		} )
 	}
 
@@ -33,7 +35,7 @@ class TechList extends Component {
 		} )
 	}
 	render() {
-		return ( <form onSubmit={this.handleSubmit}>
+		return (<form onSubmit={this.handleSubmit}>
 			< h1 >
 				{this.state.newTech}</h1>
 			< ul >
@@ -41,17 +43,13 @@ class TechList extends Component {
 					this
 						.state
 						.techs
-						.map(tech => (<li key={tech}>
-							{tech}
-							<button type="button" onClick={() => this.handleDelete( tech )}>Remover</button>
-							< /li>)) }
-			</ul>
-			<input type="text" onChange={this.handleInputChange} value={this.state.newTech}/>
-
-			<button type="submit">
-				Enviar</button>
-		</form> )
-	}
-}
+						.map( tech => <TechItem key={tech} tech={tech} onDelete={() => this.handleDelete( tech )}/> )
+				}< /ul>
+					<input type="text" onChange={this.handleInputChange} value={this.state.newTech}/>
+					<button type="submit">
+						Enviar</button>
+				</form>)
+				}
+				}
 
 export default TechList;

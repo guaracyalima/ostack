@@ -7,7 +7,7 @@ class TechList extends Component {
 		techs: [
 			'Node.JS', 'PHP', 'ReactJS', 'React Native',
 		],
-		newTech: '',
+		newTech: ''
 	};
 
 	handleInputChange = e => {
@@ -22,7 +22,7 @@ class TechList extends Component {
 				...this.state.techs,
 				this.state.newTech,
 			],
-			newTech: ''
+			newTech: '',
 		} )
 	}
 
@@ -44,7 +44,9 @@ class TechList extends Component {
 						.state
 						.techs
 						.map( tech => <TechItem key={tech} tech={tech} onDelete={() => this.handleDelete( tech )}/> )
-				}< /ul>
+				}
+				<TechItem/>
+				< /ul>
 					<input type="text" onChange={this.handleInputChange} value={this.state.newTech}/>
 					<button type="submit">
 						Enviar</button>

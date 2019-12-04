@@ -5,7 +5,6 @@ function TechItem( { tech, onDelete, } ) {
 		{tech}
 		<button type="button" onClick={onDelete}>Remover</button>
 		< /li>
-			)
-}
+			) } TechItem.defaultProps= {tech: 'Evil Tecnhology'}
 
-export default TechItem;
+			export default TechItem;
